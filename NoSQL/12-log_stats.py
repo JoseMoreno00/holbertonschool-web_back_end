@@ -10,18 +10,18 @@ if __name__ == "__main__":
     server = MongoClient("mongodb://127.0.0.1:27017")
     nginx_collection = server.logs.nginx
 
-    print(f"{nginx_collection.count_documents({})} logs")
+    print("{} logs".format(nginx_collection.count_documents({})))
     print("Methods:")
     get = nginx_collection.count_documents({"method": "GET"})
-    print(f"\tmethod GET: {get}")
+    print("\tmethod GET: {}".format(get))
     post = nginx_collection.count_documents({"method": "POST"})
-    print(f"\tmethod POST: {post}")
+    print("\tmethod POST: {}".format(post))
     put = nginx_collection.count_documents({"method": "PUT"})
-    print(f"\tmethod PUT: {put}")
+    print("\tmethod PUT: {}".format(put))
     patch = nginx_collection.count_documents({"method": "PATCH"})
-    print(f"\tmethod PATCH: {patch}")
+    print("\tmethod PATCH: {}".format(patch))
     delete = nginx_collection.count_documents({"method": "DELETE"})
-    print(f"\tmethod DELETE: {delete}")
-    status = nginx_collection.count_documents({"method": "GET"},
-                                              {"path": "/status"})
-    print(f"{status} status check")
+    print("\tmethod DELETE: {}".format(delete))
+    get_status = nginx_collection.count_documents(
+        {"method": "GET", "path": "/status"})
+    print("{} status check".format(get_status))
