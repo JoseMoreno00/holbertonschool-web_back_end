@@ -21,6 +21,5 @@ if __name__ == "__main__":
     print(f"\tmethod PATCH: {patch}")
     delete = nginx_collection.count_documents({"method": "DELETE"})
     print(f"\tmethod DELETE: {delete}")
-    status = nginx_collection.count_documents({"method": "GET"},
-                                              {"path": "/status"})
+    status = nginx_collection.count_documents({"path": "/status"})
     print(f"{status} status check")
