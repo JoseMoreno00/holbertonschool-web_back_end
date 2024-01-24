@@ -6,7 +6,7 @@ import asyncio
 import random
 
 
-async def async_generator():
+async def async_generator() -> float:
     """Function"""
     for a in range(10):
         await asyncio.sleep(1)
