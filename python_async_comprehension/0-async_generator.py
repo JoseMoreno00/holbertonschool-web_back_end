@@ -4,9 +4,10 @@ Async Comprehension
 """
 import asyncio
 import random
+from typing import Generator
 
 
-async def async_generator() -> float:
+async def async_generator() -> Generator[float, None, None]:
     """Function"""
     for a in range(10):
         await asyncio.sleep(1)
